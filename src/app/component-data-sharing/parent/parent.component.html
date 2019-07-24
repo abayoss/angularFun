@@ -1,0 +1,62 @@
+<div class="pl-3">
+  <h2>Sharing Data Between Components:</h2>
+  <div class="pl-3">
+    <h3>Parent to Child - by @Input :</h3>
+    <div class="pl-3">
+      <blockquote>
+        When you declare a variable with the Input decorator in the child
+        component, it allows that variable to be received from a parent
+        template.
+      </blockquote>
+      <!-- bind parent message to child one message :  -->
+      <app-child-one [message]="parentMessage"></app-child-one>
+    </div>
+
+    <h3>Child to parent - by @ViewChild :</h3>
+    <div class="pl-3">
+      <blockquote>
+        ViewChild allows one component to be injected into another, giving the
+        parent access to its attributes and functions.
+      </blockquote>
+      {{ ChildMessageByViewChild }}
+    </div>
+
+    <h3>Child to parent - by @Output & Event Emitter :</h3>
+    <div class="pl-3">
+      <blockquote>
+        Another way to share data is to emit data from the child, which can be
+        listned to by the parent. This approach is ideal when you want to share
+        data changes that occur on things like button clicks, form entires, and
+        other user events.
+      </blockquote>
+      <!-- listen to message event Emitter on child one, Then update parent message : -->
+      <app-child-one (messageEvent)="onReceiveMessage($event)"></app-child-one>
+      <!-- simply cast the parents variable <childMessage> by string interpolation  -->
+      {{ ChildMessage }}
+    </div>
+
+    <h3>
+      Child to Child thru parent - by @Output Event Emmitter & Input :
+    </h3>
+    <div class="pl-3">
+      <h4>Child two :</h4>
+      <small>write some data and submit it to be sent to child three : </small>
+      <!-- listen to postCreated Event Emitter on child then update parents posts [] : -->
+      <app-child-two (postCreated)="onAddPost($event)"></app-child-two>
+      <h4>Child three :</h4>
+      <!-- bind parent posts to child three posts :  -->
+      <app-child-three [posts]="posts"></app-child-three>
+    </div>
+
+    <h3>
+      ANY to ANY thru a Service :
+    </h3>
+    <div class="pl-3 mb-5">
+      <h4>Sibling Says : </h4>
+      <div>
+        <app-sibling></app-sibling>
+      </div>
+      <button class="btn btn-warning" (click)="newMessage()"> Send New Message to the sibling ! </button>
+    </div>
+  </div>
+</div>

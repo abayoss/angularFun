@@ -1,0 +1,83 @@
+<div class="syntax my-5">
+  <h2>{{ lessonTitle }}</h2>
+  <h4>{{ lesson.title }}</h4>
+  <p>{{ lesson.body }}</p>
+  <h4>Even works as a value for attributes:</h4>
+  <div><img src="{{ imageUrl }}" /></div>
+  <h4>but a better way is to bind the attribute to a ts variable :</h4>
+  <div><img [src]="imageUrl" /></div>
+  <h2 class="mt-3">
+    **Directives**
+  </h2>
+  <h3>attribute directives:</h3>
+  <div class="my-2" [ngStyle]="{ color: randomColor }">random color with ngStyle</div>
+  <button type="button" class="btn btn-primary">
+    Notifications with ngClass
+    <span [ngClass]="{ badge: badge == 0, 'badge badge-light': badge > 0 }">{{
+      badge
+    }}</span>
+  </button>
+  <h3>structural directives:</h3>
+  <h4>
+    Showing an array property with *ngFor:
+  </h4>
+  <span *ngFor="let post of posts">
+    <blockquote>
+      {{ post.language }}
+    </blockquote>
+  </span>
+  <h4>
+    Conditional display with *ngIf (data & templates) :
+  </h4>
+  <div>
+    <button class="btn btn-primary" (click)="toggleSpan()">Toggle Span</button>
+    <div *ngIf="showSpan">
+      span is visible :
+      <span>
+        *(i am the span)*
+      </span>
+    </div>
+    <div *ngIf="!showSpan">
+      span is Hidden
+    </div>
+  </div>
+  <h4>*ngIf Templates :</h4>
+  <div *ngIf="posts.length; then hasPosts; else hasNoPosts"></div>
+  <ng-template #hasPosts>
+    <div class="alert alert-info ">il existe {{ posts.length }} language.</div>
+  </ng-template>
+
+  <ng-template #hasNoPosts>
+    <div class="alert alert-warning">Pas de language</div>
+  </ng-template>
+  <h2>To nest other components :</h2>
+  <app-navbar></app-navbar>
+
+  <h2>Data Binding</h2>
+  <p>ngModel : for it to work, you need to import the FormsModule in app.module.ts</p>
+  <small>try and change the imput value :</small>
+  <div class="form-group">
+    <label for=""></label>
+    <input
+      type="text"
+      class="form-control"
+      name=""
+      id=""
+      [(ngModel)]="formText"
+    />
+    <small>the form Value is : {{ formText }}</small>
+  </div>
+  <p>disabled button with attribute data binding:  </p>
+  <button [disabled]="disabledBtn" class="btn btn-danger">the red disabled button </button>
+  <p>enable button with event data binding:  </p>
+  <button type="button" class="btn btn-primary" (click)="enableRedBtn()">click me to enable the red disabled btn 👆🏻</button>
+  <h2>PIPES</h2>
+  <h4>
+    built In Pipes :
+    {{ posts[0].language | uppercase }}
+  </h4>
+  <h4>
+    Custom Pipes :
+    {{ lesson.body | Truncate }}
+  </h4>
+</div>

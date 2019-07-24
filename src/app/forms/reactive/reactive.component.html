@@ -1,0 +1,98 @@
+<form action="" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div formGroupName="userData">
+    <div class="form-group">
+      <label for="username">User Name</label>
+      <input
+        type="text"
+        name="username"
+        class="form-control"
+        formControlName="username"
+      />
+      <span
+        *ngIf="
+          !signupForm.get('userData.username').valid &&
+          signupForm.get('userData.username').touched
+        "
+      >
+        <span *ngIf="signupForm.get('userData.username').errors['forbiden']"
+          >this user name is already taken, Please try another user name
+        </span>
+        <span *ngIf="signupForm.get('userData.username').errors['required']"
+          >Please enter a user name
+        </span>
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        placeholder=""
+        formControlName="email"
+      />
+      <span
+        *ngIf="
+          !signupForm.get('userData.email').valid &&
+          signupForm.get('userData.email').touched
+        "
+      >
+        <span *ngIf="signupForm.hasError('forbidenEmail', 'userData.email')"
+          >this email is already taken, Please try another user name
+        </span>
+        <span *ngIf="signupForm.hasError('required', 'userData.email')"
+          >Please enter an email
+        </span>
+      </span>
+    </div>
+  </div>
+  <div class="form-check" *ngFor="let gender of genders">
+    <label class="form-check-label">
+      <input
+        type="radio"
+        class="form-check-input"
+        name="gender"
+        id="gender"
+        value="{{ gender }}"
+        formControlName="gender"
+      />
+      {{ gender }}
+    </label>
+  </div>
+  <!-- formArray -->
+  <div formArrayName="hobbies">
+    <button type="button" class="btn btn-primary" (click)="onAddHobby()">
+      Add a hobby
+    </button>
+    <div
+      class="form-group"
+      *ngFor="
+        let hobbyControl of signupForm.get('hobbies')['controls'];
+        let i = index
+      "
+    >
+      <input type="text" class="form-control" [formControlName]="i" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button
+      type="submit"
+      [disabled]="!signupForm.valid"
+      class="form-control btn btn-primary my-2"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+
+<div class="card" *ngIf="submitted ">
+  <h2>data you have entered :</h2>
+  <p>user name : {{ userData.username }}</p>
+  <p>email : {{ userData.email }}</p>
+  <p>gender : {{ userData.gender }}</p>
+  <p>hobbies:</p>
+  <div class="form-group" *ngFor="let hobby of userData.hobbies">
+    <small class="ml-5">{{hobby}}</small>
+  </div>
+</div>
