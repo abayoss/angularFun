@@ -1,25 +1,28 @@
 <form action="" (ngSubmit)="onSubmit(f)" #f="ngForm">
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" name="title" class="form-control" ngModel required />
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input
-      type="email"
-      class="form-control"
-      name="email"
-      id="email"
-      ngModel
-      required
-      email
-      #email="ngModel"
-    />
-    <span *ngIf="!email.valid && email.touched">email is not valid</span>
+  <div id="userData" ngModelGroup="userData">
+    <div class="form-group">
+      <label for="userName">User Name</label>
+      <input type="text" name="userName" class="form-control" ngModel required />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        id="email"
+        ngModel
+        required
+        email
+        #email="ngModel"
+      />
+      <span *ngIf="!email.valid && email.touched">email is not valid</span>
+    </div>
   </div>
   <div class="form-group">
     <label for="question">Select an Option</label>
     <!-- <select class="form-control" name="question" id="question" ngModel required> -->
+    <!-- one way data binding -->
     <select
       class="form-control"
       name="question"
@@ -33,6 +36,7 @@
     </select>
   </div>
   <div class="form-group">
+    <!-- two way data binding -->
     <label for="answer">Answer</label>
     <textarea
       class="form-control"
@@ -62,11 +66,11 @@
     Submit
   </button>
   <div class="card" *ngIf="submitted">
-    <h2>data you have entered : </h2>
-    <p>user name : {{userData.title}}</p>
-    <p>email : {{userData.email}}</p>
-    <p>question : {{userData.question}}</p>
-    <p>answer : {{userData.answer}}</p>
-    <p>gender : {{userData.gender}}</p>
+    <h2>data you have entered :</h2>
+    <p>user name : {{ userData.userName }}</p>
+    <p>email : {{ userData.email }}</p>
+    <p>question : {{ userData.question }}</p>
+    <p>answer : {{ userData.answer }}</p>
+    <p>gender : {{ userData.gender }}</p>
   </div>
 </form>

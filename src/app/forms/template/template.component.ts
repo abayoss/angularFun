@@ -13,7 +13,7 @@ export class TemplateComponent implements OnInit {
   genders = ['male', 'female'];
   submitted = false;
   userData = {
-    title: '',
+    userName: '',
     email: '',
     question: '',
     answer: '',
@@ -23,14 +23,17 @@ export class TemplateComponent implements OnInit {
 
   ngOnInit() {}
   onSubmit(form: NgForm) {
+    if (form.valid) {
+      console.log(' form is valid !');
+    }
     this.submitted = true;
     // u can chose to use either form or this.ViewForm :
-    this.userData.title = form.value.title;
-    this.userData.email = this.Viewform.value.email;
+    this.userData.userName = form.value.userData.userName;
+    this.userData.email = this.Viewform.value.userData.email;
     this.userData.question = form.value.question;
     this.userData.answer = form.value.answer;
     this.userData.gender = this.Viewform.value.gender;
-    form.reset();
+    // form.reset();
     // this.ViewForm.reset();
   }
 }
