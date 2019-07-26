@@ -25,7 +25,9 @@ import { MenuComponent } from './layout/menu/menu.component';
 @NgModule({
    declarations: [
       AppComponent,
+      MenuComponent,
       NavbarComponent,
+      PageNotFoundComponent,
       TemplateSyntaxComponent,
       TruncatePipe,
       ParentComponent,
@@ -36,9 +38,7 @@ import { MenuComponent } from './layout/menu/menu.component';
       HttpClientComponent,
       FormssidebysideComponent,
       ReactiveComponent,
-      TemplateComponent,
-      PageNotFoundComponent,
-      MenuComponent
+      TemplateComponent
    ],
    imports: [
       BrowserModule,
