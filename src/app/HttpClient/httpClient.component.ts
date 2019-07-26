@@ -19,6 +19,7 @@ export class HttpClientComponent implements OnInit {
   };
 
   myPosts: any[] = [];
+  // dependency injection :
   constructor(private HttpClient: HttpClientService) {}
 
   ngOnInit() {

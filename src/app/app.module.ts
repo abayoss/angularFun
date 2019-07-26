@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 import { TemplateSyntaxComponent } from './template-syntax/template-syntax.component';
 import { ParentComponent } from './component-data-sharing/parent/parent.component';
 import { ChildOneComponent } from './component-data-sharing/child-one/child-one.component';
@@ -16,9 +16,11 @@ import { HttpClientComponent } from './HttpClient/httpClient.component';
 import { FormssidebysideComponent } from './forms/formssidebyside/formssidebyside.component';
 import { ReactiveComponent } from './forms/reactive/reactive.component';
 import { TemplateComponent } from './forms/template/template.component';
+import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 
 import { TruncatePipe } from './Truncate.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { MenuComponent } from './layout/menu/menu.component';
 
 @NgModule({
    declarations: [
@@ -34,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
       HttpClientComponent,
       FormssidebysideComponent,
       ReactiveComponent,
-      TemplateComponent
+      TemplateComponent,
+      PageNotFoundComponent,
+      MenuComponent
    ],
    imports: [
       BrowserModule,

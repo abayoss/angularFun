@@ -62,9 +62,17 @@
       {{ gender }}
     </label>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
-    Submit
-  </button>
+
+  <div class="form-group">
+      <button
+        type="submit"
+        [disabled]="f.invalid"
+        class="form-control btn btn-primary my-2"
+      >
+        Submit
+      </button>
+    </div>
+  
   <div class="card" *ngIf="submitted">
     <h2>data you have entered :</h2>
     <p>user name : {{ userData.userName }}</p>
