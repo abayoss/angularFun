@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { MenuComponent } from './layout/menu/menu.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { TemplateSyntaxComponent } from './template-syntax/template-syntax.component';
 import { ParentComponent } from './component-data-sharing/parent/parent.component';
@@ -19,8 +21,6 @@ import { TemplateComponent } from './forms/template/template.component';
 import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 
 import { TruncatePipe } from './Truncate.pipe';
-import { HttpClientModule } from '@angular/common/http';
-import { MenuComponent } from './layout/menu/menu.component';
 
 @NgModule({
    declarations: [

@@ -23,6 +23,12 @@ export class TemplateSyntaxComponent implements OnInit {
   showSpan = false;
   formText = 'text';
   disabledBtn = true;
+  datePipe = new Date(2019, 0, 1);
+  asyncPipe = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('This data is shown after 3sec');
+    }, 3000);
+  });
   constructor() {}
 
   ngOnInit() {
@@ -32,7 +38,7 @@ export class TemplateSyntaxComponent implements OnInit {
     const colors = ['red', 'green', 'yellow', 'purple', 'black'];
     setInterval(() => {
       const randomIndex = Math.floor(Math.random() * colors.length - 1) + 1;
-      this.randomColor =  colors[randomIndex];
+      this.randomColor = colors[randomIndex];
     }, 100);
   }
   toggleSpan() {

@@ -10,7 +10,9 @@
     **Directives**
   </h2>
   <h3>attribute directives:</h3>
-  <div class="my-2" [ngStyle]="{ color: randomColor }">random color with ngStyle</div>
+  <div class="my-2" [ngStyle]="{ color: randomColor }">
+    random color with ngStyle
+  </div>
   <button type="button" class="btn btn-primary">
     Notifications with ngClass
     <span [ngClass]="{ badge: badge == 0, 'badge badge-light': badge > 0 }">{{
@@ -54,7 +56,10 @@
   <app-navbar></app-navbar>
 
   <h2>Data Binding</h2>
-  <p>ngModel : for it to work, you need to import the FormsModule in app.module.ts</p>
+  <p>
+    ngModel : for it to work, you need to import the FormsModule in
+    app.module.ts
+  </p>
   <small>try and change the imput value :</small>
   <div class="form-group">
     <label for=""></label>
@@ -67,17 +72,42 @@
     />
     <small>the form Value is : {{ formText }}</small>
   </div>
-  <p>disabled button with attribute data binding:  </p>
-  <button [disabled]="disabledBtn" class="btn btn-danger">the red disabled button </button>
-  <p>enable button with event data binding:  </p>
-  <button type="button" class="btn btn-primary" (click)="enableRedBtn()">click me to enable the red disabled btn 👆🏻</button>
+  <p>disabled button with attribute data binding:</p>
+  <button [disabled]="disabledBtn" class="btn btn-danger">
+    the red disabled button
+  </button>
+  <p>enable button with event data binding:</p>
+  <button type="button" class="btn btn-primary" (click)="enableRedBtn()">
+    click me to enable the red disabled btn 👆🏻
+  </button>
   <h2>PIPES</h2>
   <h4>
-    built In Pipes :
+    <b>
+      built In Pipes :
+    </b>
     {{ posts[0].language | uppercase }}
   </h4>
   <h4>
-    Custom Pipes :
-    {{ lesson.body | Truncate }}
+    <b>
+      chain Pipes :
+    </b>
+    {{ datePipe | date | uppercase }}
+  </h4>
+  <h4>
+    <b>
+      Custom Pipes With custom params:
+    </b>
+    {{ lesson.body | Truncate: 30 }}
+  </h4>
+  <h4>
+    <b>
+      Async Pipes :
+    </b>
+    {{ asyncPipe | async }}
+  </h4>
+  <h4>
+    <a href="https://angular.io/api?query=pipe" target="blank">
+      Click this to learn more about pipes !</a
+    >
   </h4>
 </div>
