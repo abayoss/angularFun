@@ -21,6 +21,7 @@ import { TemplateComponent } from './forms/template/template.component';
 import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 
 import { TruncatePipe } from './Truncate.pipe';
+import { LazyLoadingComponent } from './lazyLoading/lazy-loading.component';
 
 @NgModule({
    declarations: [
@@ -38,7 +39,8 @@ import { TruncatePipe } from './Truncate.pipe';
       HttpClientComponent,
       FormssidebysideComponent,
       ReactiveComponent,
-      TemplateComponent
+      TemplateComponent,
+      LazyLoadingComponent
    ],
    imports: [
       BrowserModule,
