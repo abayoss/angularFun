@@ -41,6 +41,6 @@ export class ParentComponent implements OnInit, AfterViewInit {
   }
   // send new message to service then to sibling
   newMessage() {
-    this.data.changeMessage('Hello from Sibling');
+    this.data.changeMessage('Hello from another Sibling');
   }
 }

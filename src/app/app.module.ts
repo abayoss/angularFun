@@ -18,10 +18,11 @@ import { HttpClientComponent } from './HttpClient/httpClient.component';
 import { FormssidebysideComponent } from './forms/formssidebyside/formssidebyside.component';
 import { ReactiveComponent } from './forms/reactive/reactive.component';
 import { TemplateComponent } from './forms/template/template.component';
+import { FileUploadComponent } from './forms/file-upload/file-upload.component';
+import { LazyLoadingComponent } from './lazyLoading/lazy-loading.component';
 import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 
-import { TruncatePipe } from './Truncate.pipe';
-import { LazyLoadingComponent } from './lazyLoading/lazy-loading.component';
+import { TruncatePipe } from './template-syntax/Truncate.pipe';
 
 @NgModule({
    declarations: [
@@ -40,7 +41,8 @@ import { LazyLoadingComponent } from './lazyLoading/lazy-loading.component';
       FormssidebysideComponent,
       ReactiveComponent,
       TemplateComponent,
-      LazyLoadingComponent
+      LazyLoadingComponent,
+      FileUploadComponent
    ],
    imports: [
       BrowserModule,

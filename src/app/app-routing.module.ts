@@ -8,6 +8,7 @@ import { FormssidebysideComponent } from './forms/formssidebyside/formssidebysid
 import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 import { MenuComponent } from './layout/menu/menu.component';
 import { LazyLoadingComponent } from './lazyLoading/lazy-loading.component';
+import { FileUploadComponent } from './forms/file-upload/file-upload.component';
 
 const routes: Routes = [
   { path: '', component: MenuComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'sharing-data', component: ParentComponent },
   { path: 'http-client', component: HttpClientComponent },
   { path: 'forms', component: FormssidebysideComponent },
+  { path: 'file-upload', component: FileUploadComponent },
   { path: 'lazyContainer', component: LazyLoadingComponent },
   {
     path: 'lazyContainer/lazyLoading',
