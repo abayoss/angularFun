@@ -4,7 +4,7 @@ Angular 2 core fundamentals in one single project,
 I will be adding more concepts, I will try to structure them by branches.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
 
-![](https://imgur.com/ZIi65is.png)
+![](https://i.imgur.com/awasmha.png)
 
 ## Development server
 
